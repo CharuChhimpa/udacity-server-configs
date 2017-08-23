@@ -1,3 +1,7 @@
+## About
+This repo contains details about configuring apache to run flask-psql server
+### IP Address: http://198.199.102.66/
+### Project URL [http://catalog.ansarimofid.in/](http://catalog.ansarimofid.in/)
 ## Configs
 ### Creating Digital Ocean Server
 * From Create button choose droplet option (Create Droplets Form will open)
@@ -187,3 +191,5 @@ Change the following
 PermitRootLogin no
 PasswordAuthentication no
 `
+Restart SSH
+`sudo service ssh restart`
