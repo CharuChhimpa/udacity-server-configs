@@ -108,3 +108,20 @@ Install wsgi_mod
 
 Restart Apache server
 
+### Install and configure PostgreSQL
+
+Install PostgreSQl
+`sudo apt-get install postgresql`
+
+To Disable remote connection open `sudo nano /etc/postgresql/VERSION/main/pg_hba.conf` and reove entry other than `127.0.0.1`
+
+To Create new database and user we need to enter into psql shell which can be achieved by `sudo -u postgres psql`
+
+After entering the shell enter below command
+Create new user with `catalog` database access by command `create user catalog with password 'password';`
+Create database by command `create database catalog with owner catalog;`
+Then exit by `\q`
+
+### Install git
+run below command to install git
+`sudo apt-get install git` 
