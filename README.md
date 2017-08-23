@@ -1,6 +1,7 @@
 ## About
 This repo contains details about configuring apache to run flask-psql server
 ### IP Address: http://198.199.102.66/
+### SSH Port: 2200
 ### Project URL [http://catalog.ansarimofid.in/](http://catalog.ansarimofid.in/)
 ## Configs
 ### Creating Digital Ocean Server
@@ -196,3 +197,7 @@ PasswordAuthentication no
 
 Restart SSH
 `sudo service ssh restart`
+
+### Third part resource user
+[https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets)
+[https://www.youtube.com/watch?v=5UNAy4GzQ5E](https://www.youtube.com/watch?v=5UNAy4GzQ5E)
