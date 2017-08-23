@@ -125,3 +125,46 @@ Then exit by `\q`
 ### Install git
 run below command to install git
 `sudo apt-get install git` 
+
+### Clone and setup your Item Catalog project from the Github
+
+get to `www` the directory by `cd /var/www`
+clone by `sudo git clone https://github.com/ansarimofid/udacity-catalog.git catalog`
+get to `catalog` directory `cd catalog`
+install `pip` by `sudo apt-get install python-pip`
+install dependencies by `sudo pip install -r requirements.txt`
+
+### Configure Apache to run the catalog app
+Create apache config file
+`sudo nano /etc/apache2/sites-available/catalog.conf`
+
+Configure it by copying below config text
+```
+<VirtualHost *:80>
+    ServerName YOUR_IP
+
+    WSGIScriptAlias / /var/www/catalog/wsgi.py
+
+    <Directory /var/www/catalog>
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+```
+
+go to project directory by `cd /var/www/catalog`
+Create  `wsgi` file by `sudo nano wsgi.py`
+Add following config
+```python
+import sys
+
+sys.path.insert(0, '/var/www/catalog')
+
+from catalog import app as application
+
+application.secret_key = 'New secret key. Change it on server'
+```
+
+Enable and reload apache server
+`sudo a2ensite catalog`
+`sudo service apache2 reload`
