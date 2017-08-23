@@ -62,6 +62,10 @@ sudo ufw allow 2200/tcp
 sudo ufw allow www
 sudo ufw allow ntp
 ```
+
+Remove port 22 from ufw
+`sudo ufw delete allow 22`
+
 Enable UFW
 ```
 sudo ufw enable
