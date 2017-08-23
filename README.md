@@ -179,3 +179,11 @@ You can use `https://www.cloudflare.com` and link your IP to subdomain
 Open catalog.py file by `sudo nano /var/www/catalog/catalog.py` and replace the redirect link by `YOUR_SUBDOMAIN`
 ### Changing configs in google OAuth 2.0
 configure your OAuth 2.0 credential and update `uthorized origin` and `redirect URIs` with your subdomain
+
+### Disable root login and password based login
+Open config file `sudo nano /etc/ssh/sshd_config`
+Change the following
+`
+PermitRootLogin no
+PasswordAuthentication no
+`
