@@ -132,7 +132,7 @@ get to `www` the directory by `cd /var/www`
 clone by `sudo git clone https://github.com/ansarimofid/udacity-catalog.git catalog`
 get to `catalog` directory `cd catalog`
 install `pip` by `sudo apt-get install python-pip`
-install dependencies by `sudo pip install -r requirements.txt`
+install dependencies by `sudo -H pip install -r requirements.txt`
 
 ### Configure Apache to run the catalog app
 Create apache config file
@@ -168,3 +168,14 @@ application.secret_key = 'New secret key. Change it on server'
 Enable and reload apache server
 `sudo a2ensite catalog`
 `sudo service apache2 reload`
+
+Check for errors by `sudo cat /var/log/apache2/error.log`
+
+### Setting Up subdomain to run your app
+Since google oauth doesn't work with bare IPs we need to setup subdomain
+You can use `https://www.cloudflare.com` and link your IP to subdomain
+
+### Changing redirect link
+Open catalog.py file by `sudo nano /var/www/catalog/catalog.py` and replace the redirect link by `YOUR_SUBDOMAIN`
+### Changing configs in google OAuth 2.0
+configure your OAuth 2.0 credential and update `uthorized origin` and `redirect URIs` with your subdomain
