@@ -4,7 +4,7 @@ This repo contains details about configuring apache to run flask-psql server
 ### Project URL [http://catalog.ansarimofid.in/](http://catalog.ansarimofid.in/)
 ## Configs
 ### Creating Digital Ocean Server
-* From Create button choose droplet option (Create Droplets Form will open)
+* From Create button choose droplet option ('Create Droplets Form' will open)
 * Choose 'Ubuntu 16.04' distribution
 * Choose $5/mo plan
 * Choose preferred data center location
@@ -75,11 +75,13 @@ Go through the procedure and provide the necessary details like password, name e
 ### Give grader the permission to sudo.
 First Create ```sudoers.d``` file
 ```touch /etc/sudoers.d/grader```
+
 Next, Add permission
 ```
 sudo nano /etc/sudoers.d/grader
 # Opens grader file
 ```
+
 Now add ``` grader ALL=(ALL) NOPASSWD:ALL``` to file and save
 
 ### Create an SSH key pair for grader using the ssh-keygen tool
@@ -122,8 +124,8 @@ To Disable remote connection open `sudo nano /etc/postgresql/VERSION/main/pg_hba
 To Create new database and user we need to enter into psql shell which can be achieved by `sudo -u postgres psql`
 
 After entering the shell enter below command
-Create new user with `catalog` database access by command `create user catalog with password 'password';`
-Create database by command `create database catalog with owner catalog;`
+Create new user with 'catalog' `create user catalog with password 'password';`
+Create new database with `catalog` as owner `create database catalog with owner catalog;`
 Then exit by `\q`
 
 ### Install git
@@ -182,7 +184,7 @@ You can use `https://www.cloudflare.com` and link your IP to subdomain
 ### Changing redirect link
 Open catalog.py file by `sudo nano /var/www/catalog/catalog.py` and replace the redirect link by `YOUR_SUBDOMAIN`
 ### Changing configs in google OAuth 2.0
-configure your OAuth 2.0 credential and update `uthorized origin` and `redirect URIs` with your subdomain
+configure your OAuth 2.0 credential and update `authorized origin` and `redirect URIs` with your subdomain
 
 ### Disable root login and password based login
 Open config file `sudo nano /etc/ssh/sshd_config`
@@ -191,5 +193,6 @@ Change the following
 PermitRootLogin no
 PasswordAuthentication no
 `
+
 Restart SSH
 `sudo service ssh restart`
